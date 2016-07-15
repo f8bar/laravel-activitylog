@@ -3,7 +3,7 @@
 use Spatie\Activitylog\ActivityLogger;
 
 if (!function_exists('activity')) {
-    function activity(string $logName = null): ActivityLogger
+    function activity(string $logName = null)
     {
         $defaultLogName = config('laravel-activitylog.default_log_name');
 
