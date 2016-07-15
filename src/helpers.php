@@ -6,7 +6,10 @@ if (!function_exists('activity')) {
     function activity(string $logName = null)
     {
         $defaultLogName = config('laravel-activitylog.default_log_name');
-
-        return app(ActivityLogger::class)->useLog($logName ?? $defaultLogName);
+        $definitiveLogName = $defaultLogName;
+        if (!is_null($logName)) {
+            $definitiveLogName = $logName;
+        }
+        return app(ActivityLogger::class)->useLog($definitiveLogName);
     }
 }
